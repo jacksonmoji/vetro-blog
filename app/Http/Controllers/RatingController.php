@@ -31,12 +31,4 @@ class RatingController extends Controller
 
     }
 
-    // public function create(array $data)
-    // {
-    //   return Rating::create([
-    //     'rating' => $data['rating'],
-    //     'email' => $data['email'],
-    //     'password' => Hash::make($data['password'])
-    //   ]);
-    // }
 }
