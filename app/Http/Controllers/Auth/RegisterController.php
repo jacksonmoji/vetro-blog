@@ -10,16 +10,33 @@ use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
+
+    /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware(['guest']);
     }
     
+    /**
+     * Display registration page.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         return view('auth.register');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -42,6 +59,12 @@ class RegisterController extends Controller
         return back();
     }
 
+    /**
+     * helper function for creating a new user.
+     *
+     * @param  array  $data
+     * @return User
+     */
     public function create(array $data)
     {
       return User::create([
