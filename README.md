@@ -1,5 +1,7 @@
 # vetro-blog deployment notes
 
+Completed app development in one day and a half overall
+
 ## Prerequisites
 
 -   PHP **8.0.2**
