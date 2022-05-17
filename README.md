@@ -1,7 +1,5 @@
 # vetro-blog deployment notes
 
-Completed app development in one day and a half overall
-
 ## Prerequisites
 
 -   PHP **8.0.2**
@@ -11,7 +9,7 @@ Completed app development in one day and a half overall
 
 ## Deploying to Nginx
 
-Assuming you have installed MySQL, PHP, and Nginx in your system already. To deploy to nginx follow the the instructions below.
+Assuming you have installed Composer, MySQL, PHP, and Nginx in your system already. To deploy to nginx please follow the instructions below.
 
 ### Setting up MySQL
 
@@ -19,7 +17,7 @@ Assuming you have installed MySQL, PHP, and Nginx in your system already. To dep
 
     `sudo mysql`
 
-    ` CREATE DATABASE "your database name";`
+    `CREATE DATABASE "your database name";`
 
 2.  Create an new system user and grant privileges
 
@@ -134,6 +132,6 @@ server {
 
     `sudo systemctl reload nginx`
 
-6.  Check site at
+6.  Visit site at
 
     `http://vetro_blog`
