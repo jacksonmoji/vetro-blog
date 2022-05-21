@@ -15,38 +15,56 @@
 </head>
 
 <body>
+   
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Vetro Blogs</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('blogs.index') }}">Blog </a>
+                    </li>
+
+                    @auth
+
+                    <li class="nav-item">
+                        <a href="{{ route('blogs.create') }}" class="nav-link">Create Blog</a>
+                    </li>
+
+                    @endauth
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    @auth 
+                    <li class="nav-item">
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-light">Logout</button>
+                        </form>
+                    </li>
+                    @endauth
+
+                    @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                    </li>
+                    @endguest
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/">Vetro Blogs</a>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('blogs.index') }}">Blogs </a>
-                </li>
-
-                @auth
-
-                <li class="nav-item">
-                    <a href="{{ route('blogs.create') }}" class="nav-link">Create Blog</a>
-                </li>
-                <li class="nav-item">
-                    <form action="{{ route('logout') }}" method="post">
-                        @csrf
-                        <button type="submit" class="btn btn-light">Logout</button>
-                    </form>
-                </li>
-                @endauth
-
-                @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">Register</a>
-                </li>
-                @endguest
-            </ul>
-        </nav>
-
 
         @yield('content')
 
